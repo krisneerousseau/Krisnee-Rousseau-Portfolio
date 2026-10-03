@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Krisnee Rousseau | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #F8F4EF;        /* Cream/beige canvas background */
+            --card-bg: #FFFFFF;        /* White card surface */
+            --accent-red: #D23328;      /* Terracotta / crimson accent */
+            --accent-soft: #F1E7DD;     /* Muted beige fill/borders */
+            --text-dark: #2B231F;       /* Soft charcoal body text */
+            --text-muted: #6E6761;      /* Secondary text */
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            line-height: 1.6;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2.5rem 1.5rem;
+        }
+
+        /* Top Header Banner */
+        header {
+            background-color: var(--accent-red);
+            color: #FFFFFF;
+            border-radius: 20px;
+            padding: 3rem 2.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(210, 51, 40, 0.15);
+        }
+
+        .header-content {
+            max-width: 550px;
+        }
+
+        .header-tag {
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            opacity: 0.9;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        header h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+        }
+
+        .headshot-frame {
+            width: 170px;
+            height: 170px;
+            border-radius: 50%;
+            border: 4px solid #FFFFFF;
+            object-fit: cover;
+            flex-shrink: 0;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        /* Numbered Table of Contents */
+        .toc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .toc-card {
+            background-color: var(--card-bg);
+            border: 2px solid var(--accent-soft);
+            border-radius: 14px;
+            padding: 1.25rem;
+            text-decoration: none;
+            color: var(--text-dark);
+            transition: all 0.2s ease;
+            display: block;
+        }
+
+        .toc-card:hover {
+            border-color: var(--accent-red);
+            transform: translateY(-3px);
+        }
+
+        .toc-number {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--accent-red);
+            display: block;
+            margin-bottom: 0.2rem;
+        }
+
+        .toc-title {
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Content Sections */
+        section {
+            background-color: var(--card-bg);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border: 1px solid var(--accent-soft);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--bg-color);
+            padding-bottom: 1rem;
+        }
+
+        .section-num {
+            background-color: var(--accent-red);
+            color: #FFFFFF;
+            font-weight: 800;
+            font-size: 0.9rem;
+            padding: 0.3rem 0.7rem;
+            border-radius: 8px;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-dark);
+        }
+
+        /* Personal Statement Callout Box */
+        .statement-box {
+            background-color: var(--bg-color);
+            border-left: 4px solid var(--accent-red);
+            padding: 1.5rem;
+            border-radius: 0 12px 12px 0;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            line-height: 1.5;
+        }
+
+        /* Buttons */
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.6rem;
+            border-radius: 30px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            font-size: 0.95rem;
+        }
+
+        .btn-white {
+            background-color: #FFFFFF;
+            color: var(--accent-red);
+        }
+
+        .btn-white:hover {
+            background-color: var(--bg-color);
+            transform: translateY(-2px);
+        }
+
+        .btn-red {
+            background-color: var(--accent-red);
+            color: #FFFFFF;
+        }
+
+        .btn-red:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--accent-red);
+            color: var(--accent-red);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--accent-soft);
+            transform: translateY(-2px);
+        }
+
+        /* Grids & Cards */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background-color: var(--bg-color);
+            border-radius: 14px;
+            padding: 1.5rem;
+            border: 1px solid var(--accent-soft);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            color: var(--text-dark);
+            margin-bottom: 0.3rem;
+        }
+
+        .card .role-meta {
+            font-size: 0.88rem;
+            font-weight: 700;
+            color: var(--accent-red);
+            margin-bottom: 0.8rem;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1.2rem;
+        }
+
+        /* Skills Tags */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .skill-tag {
+            background-color: var(--bg-color);
+            border: 1px solid var(--accent-soft);
+            color: var(--accent-red);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+            .btn-group {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Main Header Banner -->
+    <header>
+        <div class="header-content">
+            <span class="header-tag">Rutgers Business School | Marketing & Finance</span>
+            <h1>Krisnee Rousseau</h1>
+            <div class="btn-group">
+                <a href="Krisnee Rousseau Resume-4.pdf" target="_blank" class="btn btn-white">
+                    View Resume (PDF)
+                </a>
+                <a href="https://www.linkedin.com/in/krisnee-rousseau" target="_blank" class="btn btn-white" style="background-color: transparent; color: #FFFFFF; border: 2px solid #FFFFFF;">
+                    LinkedIn
+                </a>
+            </div>
+        </div>
+        <img src="headshot.jpeg" alt="Krisnee Rousseau" class="headshot-frame">
+    </header>
+
+    <!-- Navigation Blocks -->
+    <div class="toc-grid">
+        <a href="#statement" class="toc-card">
+            <span class="toc-number">01</span>
+            <span class="toc-title">Personal Statement</span>
+        </a>
+        <a href="#skills" class="toc-card">
+            <span class="toc-number">02</span>
+            <span class="toc-title">Key Skills</span>
+        </a>
+        <a href="#projects" class="toc-card">
+            <span class="toc-number">03</span>
+            <span class="toc-title">Featured Projects</span>
+        </a>
+        <a href="#contact" class="toc-card">
+            <span class="toc-number">04</span>
+            <span class="toc-title">Contact</span>
+        </a>
+    </div>
+
+    <!-- SECTION 1: Personal Statement -->
+    <section id="statement">
+        <div class="section-header">
+            <span class="section-num">01</span>
+            <h2>Personal Statement</h2>
+        </div>
+        <div class="statement-box">
+            I am an ambitious Marketing and Finance student at Rutgers Business School specializing in brand strategy, experiential marketing, and digital content creation to build data-driven, visually compelling consumer experiences.
+        </div>
+    </section>
+
+    <!-- SECTION 2: Skills -->
+    <section id="skills">
+        <div class="section-header">
+            <span class="section-num">02</span>
+            <h2>Skills</h2>
+        </div>
+        <div class="skills-container">
+            <span class="skill-tag">Marketing & Business Strategy</span>
+            <span class="skill-tag">Social Media Growth</span>
+            <span class="skill-tag">Experiential Events & Merchandising</span>
+            <span class="skill-tag">Inside LVMH Certified</span>
+            <span class="skill-tag">Financial Forecasting</span>
+            <span class="skill-tag">Client Development & Prospecting</span>
+            <span class="skill-tag">Task & Logistics Management</span>
+            <span class="skill-tag">Microsoft Office Suite</span>
+        </div>
+    </section>
+
+    <!-- SECTION 3: Projects -->
+    <section id="projects">
+        <div class="section-header">
+            <span class="section-num">03</span>
+            <h2>Projects</h2>
+        </div>
+        <div class="grid">
+            
+            <!-- Project 1 -->
+            <div class="card">
+                <div>
+                    <h3>Le Regard</h3>
+                    <div class="role-meta">Digital Fashion Commentary Brand</div>
+                    <p>Founded and scaled a digital fashion commentary brand, producing analytical short-form video content on luxury runway trends that generated over 17K+ views and cultivated an engaged fashion community.</p>
+                </div>
+                <div>
+                    <a href="https://www.tiktok.com/@leregard.blog" target="_blank" class="btn btn-outline" style="font-size: 0.85rem; padding: 0.5rem 1rem;">
+                        View Demo on TikTok ›
+                    </a>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="card">
+                <div>
+                    <h3>John Cabot University IMC Campaign</h3>
+                    <div class="role-meta">Integrated Marketing Communications Roadmap</div>
+                    <p>Spearheaded an IMC campaign for the John Cabot University marketing department, developing a multi-channel growth roadmap targeting 2+ primary demographics and establishing key engagement metrics.</p>
+                </div>
+                <div>
+                    <a href="https://canva.link/m2b63y67h7n28py" target="_blank" class="btn btn-outline" style="font-size: 0.85rem; padding: 0.5rem 1rem;">
+                        View Presentation Deck ›
+                    </a>
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="section-header">
+            <span class="section-num">04</span>
+            <h2>Contact Me</h2>
+        </div>
+        <p style="margin-bottom: 1.5rem;">Feel free to reach out for marketing roles, strategic opportunities, or creative collaborations.</p>
+        <div class="btn-group">
+            <a href="mailto:kmr415@scarletmail.rutgers.edu" class="btn btn-red">Email Me</a>
+            <a href="https://www.linkedin.com/in/krisnee-rousseau" target="_blank" class="btn btn-outline">LinkedIn Profile</a>
+            <a href="Krisnee Rousseau Resume-4.pdf" target="_blank" class="btn btn-outline">Download Resume (PDF)</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Krisnee Rousseau. Built and hosted on GitHub Pages.</p>
+    </footer>
+
+</body>
+</html>
